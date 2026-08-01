@@ -1,7 +1,26 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import SplashScreen from "./SplashScreen";
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+  const [fadeSplash, setFadeSplash] = useState(false);
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => {
+      setFadeSplash(true);
+    }, 900);
+
+    const removeTimer = setTimeout(() => {
+      setShowSplash(false);
+    }, 1350);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+    };
+  }, []);
+
   const defaultTasks = [
     "Tidy Room",
     "Read a Book",
@@ -82,6 +101,7 @@ function App() {
   // Main screen
   return (
     <>
+        {showSplash && <SplashScreen fade={fadeSplash} />}
         <div 
           className="app" 
           onClick={!isWorking ? randomiseTask : undefined}
