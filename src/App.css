@@ -1,4 +1,11 @@
 /* App.css */
+:root {
+  color-scheme: light;
+
+  --background: #cfefff;
+  --screen: #cfefff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +19,7 @@ body {
 .app {
   width: 100vw;
   height: 100vh;
-  background: #cfefff;
+  background: var(--screen);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -121,7 +128,7 @@ p {
 .workingScreen {
   width: 100vw;
   height: 100vh;
-  background: #cfefff;
+  background: var(--screen);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,7 +140,7 @@ p {
 .editorScreen {
   width: 100vw;
   height: 100vh;
-  background: #cfefff;
+  background: var(--screen);
   display: flex;
   flex-direction: column;
   align-items: center;
